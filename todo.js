@@ -75,6 +75,18 @@ function addContainer(item){
                 todoLabel.setAttribute("readonly","readonly");
             todoEdit.innerHTML = `<i class="bi bi-pencil-fill"></i>`;
             todoEdit.classList.remove("btn-success");
+
+            let todoItems = localStorage.getItem("todo_items");
+            todoItems = JSON.parse(todoItems);
+
+            todoItems = todoItems.filter(function(value){
+                return value !== item
+            })
+
+            todoItems.push(todoLabel.value);
+            localStorage.setItem("todo_items" , JSON.stringify(todoItems));
+
+            console.log(todoLabel.value);
     
             }
             
@@ -82,6 +94,14 @@ function addContainer(item){
     
         todoDelete.addEventListener("click" , ()=>{
             todoContainer.removeChild(todo);
+            let todoItems = localStorage.getItem("todo_items");
+            todoItems = JSON.parse(todoItems);
+
+            todoItems = todoItems.filter(function(value){
+                return value !== item
+            })
+            
+            localStorage.setItem("todo_items" , JSON.stringify(todoItems));
         })
 
 }
@@ -113,7 +133,6 @@ function getItems(e){
 function saveItem(item){
     let todoItems = localStorage.getItem("todo_items");
     todoItems = JSON.parse(todoItems);
-    console.log(todoItems);
     todoItems.push(item);
     
     localStorage.setItem("todo_items" , JSON.stringify(todoItems));

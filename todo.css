@@ -1,5 +1,7 @@
 body{
-    background-color: rgb(222, 240, 234);
+    background-image: url(./flatlay.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100%;
     width: 100%;
     align-items: center;
@@ -18,7 +20,8 @@ body{
     min-width: 500px;
     height: 100%;
     min-height: 800px;
-    background-color: rgb(62, 79, 133);
+    background-color: rgb(102, 55, 121);
+    opacity: 0.9;
 }
 
 .mb-3{
@@ -39,6 +42,11 @@ body{
 .todo{   
     display: flex;
     margin-top: 2%;
+}
+
+.todo >input{
+    color: wheat;
+    background-color: rgb(56, 10, 75);
 }
 
 
